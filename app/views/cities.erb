@@ -9,8 +9,8 @@
     <ul class="today-overview">
       <li><%= @currentDay %></li>
       <li></li>
-      <li>62˚</li>
-      <li>46˚</li>
+      <li><%= @currentDayHigh %></li>
+      <li><%= @currentDayLow %></li>
     </ul>
 
     <div class="today-hourly-list-container">
@@ -24,9 +24,9 @@
         </li>
         <li>
           <ul>
-            <li>9 AM</li>
+            <li><%= @currentHour %></li>
             
-            <li>50˚</li>
+            <li>55˚</li>
           </ul>
         </li>
         <li>
@@ -191,65 +191,66 @@
     <ul class="forecast-list">
       <li>
         <ul>
-          <li>Saturday</li>
+          <li><%= @currentDay %></li>
           
-          <li>62˚</li>
-          <li>46˚</li>
+          <li><%= @currentDayHigh %></li>
+          <li><%= @currentDayLow %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Sunday</li>
           
-          <li>58˚</li>
-          <li>48˚</li>
+          <li><%= @currentDayHighPlusOne %></li>
+          <li><%= @currentDayLowPlusOne %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Monday</li>
           
-          <li>58˚</li>
-          <li>45˚</li>
+          <li><%= @currentDayHighPlusTwo %></li>
+          <li><%= @currentDayLowPlusTwo %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Tuesday</li>
           
-          <li>58˚</li>
-          <li>43˚</li>
+          <li><%= @currentDayHighPlusThree %></li>
+          <li><%= @currentDayLowPlusThree %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Wednesday</li>
           
-          <li>63˚</li>
-          <li>36˚</li>
+          <li><%= @currentDayHighPlusFour %></li>
+          <li><%= @currentDayLowPlusFour %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Thursday</li>
-          
-          <li>36˚</li>
+
+          <li><%= @currentDayHighPlusFive %></li>
+          <li><%= @currentDayLowPlusFive %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Friday</li>
           
-          <li>63˚</li>
-          <li>38˚</li>
+          <li><%= @currentDayHighPlusSix %></li>
+          <li><%= @currentDayLowPlusSix %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Saturday</li>
           
-          <li>55˚</li>
-          <li>43˚</li>
+          <li><%= @currentDayHighPlusSeven %></li>
+          <li><%= @currentDayLowPlusSeven %></li>
         </ul>
       </li>
     </ul>
