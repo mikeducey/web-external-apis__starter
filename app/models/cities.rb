@@ -1,6 +1,5 @@
 require "httparty"
 require "pry"
-#NEED TO MAKE THE SECRET FILE TO GITIGNORE!!!!!
 
 class Day
 

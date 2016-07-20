@@ -3,9 +3,9 @@ MyApp.get "/" do
 end
 
 MyApp.get "/omaha" do
-
+	require_relative "secret.rb"
 	time = Time.new
-	omaha_weather_info = HTTParty.get('https://api.forecast.io/forecast/d30a006d3cf8397481873891ce49388a/41.2607,-95.9406')
+	omaha_weather_info = HTTParty.get('https://api.forecast.io/forecast/#{API_KEY}/41.2607,-95.9406')
 	@city = Day.cityName("Omaha")
 	@status = Day.currentWeatherStatus("#{omaha_weather_info["currently"]["summary"]}.")
 	@currentTemp = Day.currentWeatherTemp("#{omaha_weather_info["currently"]["temperature"]}.")
