@@ -6,39 +6,53 @@ end
 # 	time and am or pm
 
 MyApp.get "/omaha" do
-	require_relative "secret.rb"
+
 	time = Time.new
-	@api_key = Day.getAPIKey("41.2607", "-95.9406")
-	@city = Day.cityName("Omaha")
-	@status = Day.currentWeatherStatus(@api_key)
+	
+	@api = Day.getApiInfo("41.2607","-95.9406")
+	@city = "Omaha"
+	@status = Day.currentWeatherStatus(@api)
 
-	# @hourly_temps = Day.hourly_temperatures(weather_information, time.strftime("%I""%p")
+	# @hourSequence = 
+	@hourly_temps = Day.hourly_temperatures(@api) # , time.strftime("%I""%p")
+	@hour_by_hour = Day.listByHour(@api)
+	@hourly_summary = Day.daily_summary(@api)
+	@sunriseTime = Day.sunrise_time(@api)
+	@sunsetTime = Day.sunset_time(@api)
+	@precipitationProbability = Day.precip_probability(@api)
+	@totalPrecipitation = Day.total_precip(@api)
+	@wind = Day.wind(@api)
+	@humidity = Day.humidity(@api)
+	@pressure = Day.pressure(@api)
+	@visibility = Day.visibility(@api)
+	@currentWindChill = Day.currentWindChill(@api)
 
-	#  <% @hourly_temps.each_index do |temp, index| %> #this line will go above that hourly temp section in views
-	#  					<%- time_function_thingy(index) %> to print the dang time
-	#  	 and then put <%= temp %>   #this will go in each line for the hourly temp in views
-	#  	 it might be good to look up how to write a degree!!
+	@listOfDays = Day.listOfDays(@api)
 
-	@AMorPM = Day.AMOrPM(time.strftime("%p"))
-	@currentTemp = Day.currentWeatherTemp("#{omaha_weather_info["currently"]["temperature"]}.")
+
+	@currentTemp = Day.currentWeatherTemp(@api["currently"]["temperature"])
 	@currentDay = Day.currentDay(time.strftime("%A"))
-	@currentDayLow = Day.minTemp("#{omaha_weather_info["daily"]["data"][0]["temperatureMin"]}.")
-	@currentDayHigh = Day.maxTemp("#{omaha_weather_info["daily"]["data"][0]["temperatureMax"]}.")
-	@currentHour = Day.currentHour(time.strftime("%I"))
-	@currentDayLowPlusOne = Day.minTemp("#{omaha_weather_info["daily"]["data"][1]["temperatureMin"]}.")
-	@currentDayHighPlusOne = Day.maxTemp("#{omaha_weather_info["daily"]["data"][1]["temperatureMax"]}.")
-	@currentDayLowPlusTwo = Day.minTemp("#{omaha_weather_info["daily"]["data"][2]["temperatureMin"]}.")
-	@currentDayHighPlusTwo = Day.maxTemp("#{omaha_weather_info["daily"]["data"][2]["temperatureMax"]}.")
-	@currentDayLowPlusThree = Day.minTemp("#{omaha_weather_info["daily"]["data"][3]["temperatureMin"]}.")
-	@currentDayHighPlusThree = Day.maxTemp("#{omaha_weather_info["daily"]["data"][3]["temperatureMax"]}.")
-	@currentDayLowPlusFour = Day.minTemp("#{omaha_weather_info["daily"]["data"][4]["temperatureMin"]}.")
-	@currentDayHighPlusFour = Day.maxTemp("#{omaha_weather_info["daily"]["data"][4]["temperatureMax"]}.")
-	@currentDayLowPlusFive = Day.minTemp("#{omaha_weather_info["daily"]["data"][5]["temperatureMin"]}.")
-	@currentDayHighPlusFive = Day.maxTemp("#{omaha_weather_info["daily"]["data"][5]["temperatureMax"]}.")
-	@currentDayLowPlusSix = Day.minTemp("#{omaha_weather_info["daily"]["data"][6]["temperatureMin"]}.")
-	@currentDayHighPlusSix = Day.maxTemp("#{omaha_weather_info["daily"]["data"][6]["temperatureMax"]}.")
-	@currentDayLowPlusSeven = Day.minTemp("#{omaha_weather_info["daily"]["data"][7]["temperatureMin"]}.")
-	@currentDayHighPlusSeven = Day.maxTemp("#{omaha_weather_info["daily"]["data"][7]["temperatureMax"]}.")
+	@dailyMin = Day.dailyMinTemp(@api)
+	@dailyMax = Day.dailyMaxTemp(@api)
+	@currentDayLow = Day.minTemp(@api["daily"]["data"][0]["temperatureMin"])
+	@currentDayHigh = Day.maxTemp(@api["daily"]["data"][0]["temperatureMax"])
+	# @currentHour = Day.currentHour(time.strftime("%I"))
+
+	
+	@currentDayLowPlusOne = Day.minTemp(@api["daily"]["data"][1]["temperatureMin"])
+	@currentDayHighPlusOne = Day.maxTemp(@api["daily"]["data"][1]["temperatureMax"])
+	@currentDayLowPlusTwo = Day.minTemp(@api["daily"]["data"][2]["temperatureMin"])
+	@currentDayHighPlusTwo = Day.maxTemp(@api["daily"]["data"][2]["temperatureMax"])
+	@currentDayLowPlusThree = Day.minTemp(@api["daily"]["data"][3]["temperatureMin"])
+	@currentDayHighPlusThree = Day.maxTemp(@api["daily"]["data"][3]["temperatureMax"])
+	@currentDayLowPlusFour = Day.minTemp(@api["daily"]["data"][4]["temperatureMin"])
+	@currentDayHighPlusFour = Day.maxTemp(@api["daily"]["data"][4]["temperatureMax"])
+	@currentDayLowPlusFive = Day.minTemp(@api["daily"]["data"][5]["temperatureMin"])
+	@currentDayHighPlusFive = Day.maxTemp(@api["daily"]["data"][5]["temperatureMax"])
+	@currentDayLowPlusSix = Day.minTemp(@api["daily"]["data"][6]["temperatureMin"])
+	@currentDayHighPlusSix = Day.maxTemp(@api["daily"]["data"][6]["temperatureMax"])
+	@currentDayLowPlusSeven = Day.minTemp(@api["daily"]["data"][7]["temperatureMin"])
+	@currentDayHighPlusSeven = Day.maxTemp(@api["daily"]["data"][7]["temperatureMax"])
 
 	erb :"cities"
 end

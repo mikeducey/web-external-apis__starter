@@ -2,195 +2,192 @@
   <section class="city-header">
     <h2><%= @city %></h2>
     <h4><%= @status %></h4>
-    <h1><%= @currentTemp %></h1>
+    <h1><%= @currentTemp %>˚</h1>
   </section>
 
   <section class="today">
     <ul class="today-overview">
-      <li><%= @currentDay %></li>
+      <% @listOfDays %>
+      <% @dailyMin %>
+      <% @dailyMax %>
+      <li><%= @listOfDays[0] %></li>
       <li></li>
-      <li><%= @currentDayHigh %></li>
-      <li><%= @currentDayLow %></li>
+      <li><%= @dailyMax[0] %> ˚</li>
+      <li><%= @dailyMin[0] %> ˚</li>
     </ul>
 
     <div class="today-hourly-list-container">
       <ul class="today-hourly-list" style="width: 1536px;">
       <% @hourly_temps %>
+      <% @hour_by_hour %>
         <li>
           <ul>
             <li>Now</li>
-            <li><%= @hourly_temps[0] %></li>
+            <li><%= @hourly_temps[0] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
-            <li>9 AM</li>
-            <li><%= @hourly_temps[1] %></li>
+            <li><%= @hour_by_hour[1] %></li>
+            <li><%= @hourly_temps[1] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
-            <li>10 AM</li>
-            <li><%= @hourly_temps[2] %></li>
+            <li><%= @hour_by_hour[2] %><</li>
+            <li><%= @hourly_temps[2] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>11 AM</li>
-            <li><%= @hourly_temps[3] %></li>
+            <li><%= @hourly_temps[3] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>12 PM</li>
-            <li><%= @hourly_temps[4] %></li>
+            <li><%= @hourly_temps[4] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>1 PM</li>
-            <li><%= @hourly_temps[5] %></li>
+            <li><%= @hourly_temps[5] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>2 PM</li>
-            <li><%= @hourly_temps[6] %></li>
+            <li><%= @hourly_temps[6] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>3 PM</li>
-            <li><%= @hourly_temps[7] %></li>
+            <li><%= @hourly_temps[7] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>4 PM</li>
-            <li><%= @hourly_temps[8] %></li>
+            <li><%= @hourly_temps[8] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>5 PM</li>
-            <li><%= @hourly_temps[9] %></li>
+            <li><%= @hourly_temps[9] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>6 PM</li>
-            <li><%= @hourly_temps[10] %></li>
+            <li><%= @hourly_temps[10] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>7 PM</li>
-            <li><%= @hourly_temps[11] %></li>
+            <li><%= @hourly_temps[11] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>8 PM</li>
-            <li><%= @hourly_temps[12] %></li>
+            <li><%= @hourly_temps[12] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>9 PM</li>
-            <li><%= @hourly_temps[13] %></li>
+            <li><%= @hourly_temps[13] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>10 PM</li>
-            <li><%= @hourly_temps[14] %></li>
+            <li><%= @hourly_temps[14] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>11 PM</li>
-            <li><%= @hourly_temps[15] %></li>
+            <li><%= @hourly_temps[15] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>12 AM</li>
-            <li><%= @hourly_temps[16] %></li>
+            <li><%= @hourly_temps[16] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>1 AM</li>
-            <li><%= @hourly_temps[17] %></li>
+            <li><%= @hourly_temps[17] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>2 AM</li>
-            <li><%= @hourly_temps[18] %></li>
+            <li><%= @hourly_temps[18] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>3 AM</li>
-            <li><%= @hourly_temps[19] %></li>
+            <li><%= @hourly_temps[19] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>4 AM</li>
-            <li><%= @hourly_temps[20] %></li>
+            <li><%= @hourly_temps[20] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>5 AM</li>
-            <li><%= @hourly_temps[21] %></li>
+            <li><%= @hourly_temps[21] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>6 AM</li>
-            <li><%= @hourly_temps[21] %></li>
+            <li><%= @hourly_temps[21] %>˚</li>
           </ul>
         </li>
 
         <li>
           <ul>
             <li>7 AM</li>
-            <li><%= @hourly_temps[22] %></li>
+            <li><%= @hourly_temps[22] %>˚</li>
           </ul>
         </li>
 
-        <li>
-          <ul>
-            <li>8 AM</li>
-            <li><%= @hourly_temps[23] %></li>
-          </ul>
-        </li>
-            
       </ul>
     </div>
   </section>
@@ -198,87 +195,89 @@
   <section class="forecast">
     <ul class="forecast-list">
       <li>
+       <% @listOfDays %>
+       <% @dailyMin %>
+       <% @dailyMax %>
         <ul>
-          <li><%= @currentDay %></li>
+          <li><%= @listOfDays[0] %></li>
           
-          <li><%= @currentDayHigh %></li>
-          <li><%= @currentDayLow %></li>
+          <li><%= @dailyMax[0] %> ˚</li>
+          <li><%= @dailyMin[0] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Sunday</li>
+          <li><%= @listOfDays[1] %></li>
           
-          <li><%= @currentDayHighPlusOne %></li>
-          <li><%= @currentDayLowPlusOne %></li>
+          <li><%= @dailyMax[1] %> ˚</li>
+          <li><%= @dailyMin[1] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Monday</li>
+          <li><%= @listOfDays[2] %></li>
           
-          <li><%= @currentDayHighPlusTwo %></li>
-          <li><%= @currentDayLowPlusTwo %></li>
+          <li><%= @dailyMax[2] %> ˚</li>
+          <li><%= @dailyMin[2] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Tuesday</li>
+          <li><%= @listOfDays[3] %></li>
           
-          <li><%= @currentDayHighPlusThree %></li>
-          <li><%= @currentDayLowPlusThree %></li>
+          <li><%= @dailyMax[3] %> ˚</li>
+          <li><%= @dailyMin[3] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Wednesday</li>
+          <li><%= @listOfDays[4] %></li>
           
-          <li><%= @currentDayHighPlusFour %></li>
-          <li><%= @currentDayLowPlusFour %></li>
+          <li><%= @dailyMax[4] %> ˚</li>
+          <li><%= @dailyMin[4] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Thursday</li>
+          <li><%= @listOfDays[5] %></li>
 
-          <li><%= @currentDayHighPlusFive %></li>
-          <li><%= @currentDayLowPlusFive %></li>
+          <li><%= @dailyMax[5] %> ˚</li>
+          <li><%= @dailyMin[5] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Friday</li>
+          <li><%= @listOfDays[6] %></li>
           
-          <li><%= @currentDayHighPlusSix %></li>
-          <li><%= @currentDayLowPlusSix %></li>
+          <li><%= @dailyMax[6] %> ˚</li>
+          <li><%= @dailyMin[6] %> ˚</li>
         </ul>
       </li>
       <li>
         <ul>
-          <li>Saturday</li>
+          <li><%= @listOfDays[7] %></li>
           
-          <li><%= @currentDayHighPlusSeven %></li>
-          <li><%= @currentDayLowPlusSeven %></li>
+          <li><%= @dailyMax[7] %> ˚</li>
+          <li><%= @dailyMin[7] %> ˚</li>
         </ul>
       </li>
     </ul>
   </section>
 
   <section class="today-details">
-    <p class="today-summary">Today: Light rain on Saturday, with temperatures peaking at
-    64˚F on Thursday.</p>
+    <p class="today-summary">Today: <%= @hourly_summary %></p>
 
     <ul class="today-details-list">
       <li>
         <ul>
           <li>Sunrise:</li>
-          <li>7:23 AM</li>
+          <li><%= @sunriseTime %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Sunset:</li>
-          <li>5:09 PM</li>
+          <li><%= @sunsetTime %></li>
         </ul>
       </li>
       <li>
@@ -286,13 +285,13 @@
       <li>
         <ul>
           <li>Chance of Rain:</li>
-          <li>0%</li>
+          <li><%= @precipitationProbability %> %</li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Humidity:</li>
-          <li>86%</li>
+          <li><%= @humidity %> %</li>
         </ul>
       </li>
       <li>
@@ -300,13 +299,13 @@
       <li>
         <ul>
           <li>Wind:</li>
-          <li>1 mph NW</li>
+          <li><%= @wind %> mph</li> <!-- Will need wind direction later! -->
         </ul>
       </li>
       <li>
         <ul>
           <li>Feels like:</li>
-          <li>49˚</li>
+          <li><%= @currentWindChill %> ˚</li>
         </ul>
       </li>
       <li>
@@ -314,13 +313,13 @@
       <li>
         <ul>
           <li>Precipitation:</li>
-          <li>--</li>
+          <li><%= @totalPrecipitation %> in</li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Pressure:</li>
-          <li>30 in</li>
+          <li><%= @pressure %> in</li>
         </ul>
       </li>
       <li>
@@ -328,7 +327,7 @@
       <li>
         <ul>
           <li>Visibility:</li>
-          <li>9.42 mi</li>
+          <li><%= @visibility %> mi</li>
         </ul>
       </li>
     </ul>
