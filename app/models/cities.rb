@@ -21,11 +21,15 @@ class Day
 		return temps
 	end
 
+	def Day.currentTemp(weather_information)
+		currentTemp = (weather_information["currently"]["temperature"]).to_i
+		return currentTemp
+	end
+
 	def Day.listByHour(weather_information)
 		hour = []
 		weather_information["hourly"]["data"].each do |listhour|
-			hour << (Time.at(listhour["time"])to_datetime).strftime("%H"  "%p")
-
+			hour << (Time.at(listhour["time"]).to_datetime).strftime("%-I"  "%p")
 		end
 		return hour
 	end
@@ -63,7 +67,7 @@ class Day
 
 	def Day.pressure(weather_information)
 		pressure = (weather_information["daily"]["data"][0]["pressure"])
-		return pressure * 0.0295301
+		return (pressure * 0.0295301).round(3)
 	end
 
 	def Day.visibility(weather_information)
@@ -81,9 +85,16 @@ class Day
 		return wind
 	end
 
+	def Day.windDirection(weather_information)
+		rawDirection = weather_information["daily"]["data"][0]["windBearing"]
+		convertedDirection = ((rawDirection/22.5) + 0.5)
+		listOfDirectionsArray = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+		return listOfDirectionsArray[(convertedDirection % 16)]
+	end
+
 	def Day.currentWindChill(weather_information)
 		windChill = weather_information["currently"]["apparentTemperature"]
-		return windChill
+		return windChill.to_i
 	end
 
 	def Day.listOfDays(weather_information)
@@ -110,30 +121,5 @@ class Day
 		return dayMaxTemp
 	end
 
-
-
-
-	def Day.currentWeatherTemp(temperature)
-		wholeTemp = temperature.to_i
-		return wholeTemp
-	end
-
-	def Day.currentDay(day)
-		return day
-	end
-
-	def Day.minTemp(temperature)
-		minTemp = temperature.to_i
-		return minTemp
-	end
-
-	def Day.maxTemp(temperature)
-		maxTemp = temperature.to_i
-		return maxTemp
-	end
-
-	def Day.currentHour(hour)
-		return hour
-	end
 end
 
